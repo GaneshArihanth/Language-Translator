@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Language Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 Language Translator</h1>
+
+        <form id="translateForm" method="POST">
+            <label>
+                <input type="checkbox" id="rtlToggle" onchange="updateDirection()"> RTL (Right‑to‑Left)
+            </label>
+            <br><br>
+
+            <textarea
+                name="text"
+                id="inputText"
+                dir="ltr"
+                placeholder="Enter text to translate..."
+                required
+            >{{ request.form.text or '' }}</textarea>
+            
+            <select name="language" required onchange="updateDirection()">
+                {% for key, (lang, code) in language_map.items() %}
+                    <option value="{{ code }}" {% if request.form.language == code %}selected{% endif %}>
+                        {{ lang }} ({{ code }})
+                    </option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit">Translate</button>
+        </form>
+
+        {% if translated_text %}
+            <h2>Translated Text:</h2>
+            <div class="output-wrapper">
+                <button
+                    id="copyBtn"
+                    class="copy-icon-btn"
+                    onclick="copyText()"
+                    title="Copy"
+                >📋</button>
+                <div class="output-box" id="translatedText" dir="{{ 'rtl' if request.form.get('rtl') else 'ltr' }}">
+                    {{ translated_text }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Keep track of RTL checkbox
+        function updateDirection() {
+            const isRTL = document.getElementById("rtlToggle").checked;
+            const dir = isRTL ? 'rtl' : 'ltr';
+            document.getElementById("inputText").setAttribute('dir', dir);
+        }
+
+        // On form submit, if RTL is on, reverse each word and word order
+        document.getElementById("translateForm").addEventListener("submit", function(e) {
+            const rtlToggle = document.getElementById("rtlToggle");
+            if (rtlToggle.checked) {
+                const textarea = document.getElementById("inputText");
+                const words = textarea.value.split(' ');
+                const reversed = words
+                    .map(w => w.split('').reverse().join(''))
+                    .reverse()
+                    .join(' ');
+                textarea.value = reversed;
+                // add a hidden field so Flask knows RTL was checked, if you need it server‑side:
+                let rtlField = document.querySelector('input[name="rtl"]');
+                if (!rtlField) {
+                    rtlField = document.createElement('input');
+                    rtlField.type = 'hidden';
+                    rtlField.name = 'rtl';
+                    document.getElementById("translateForm").appendChild(rtlField);
+                }
+                rtlField.value = '1';
+            }
+        });
+
+        // Copy button logic
+        function copyText() {
+            const text = document.getElementById("translatedText").innerText;
+            const btn = document.getElementById("copyBtn");
+            navigator.clipboard.writeText(text).then(() => {
+                btn.innerText = "✔️";
+                btn.title = "Copied!";
+                setTimeout(() => {
+                    btn.innerText = "📋";
+                    btn.title = "Copy";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
