@@ -10,11 +10,18 @@ export function Translator() {
     const [error, setError] = useState('');
 
     const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000';
+    console.log("Translator Component Mounted");
+    console.log("API_URL:", API_URL);
 
     useEffect(() => {
+        console.log("Fetching languages from:", `${API_URL}/api/languages`);
         fetch(`${API_URL}/api/languages`)
-            .then(res => res.json())
+            .then(res => {
+                console.log("Languages response status:", res.status);
+                return res.json();
+            })
             .then(data => {
+                console.log("Languages data received:", data);
                 setLanguages(data);
                 if (data.length > 0) {
                     // Optional: set default to first language or keep 'es' if exists
