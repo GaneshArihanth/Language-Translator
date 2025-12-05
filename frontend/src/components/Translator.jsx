@@ -9,8 +9,9 @@ export function Translator() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000';
+    const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '' : 'http://127.0.0.1:5000');
     console.log("Translator Component Mounted");
+    console.log("Environment:", import.meta.env.MODE);
     console.log("API_URL:", API_URL);
 
     useEffect(() => {
