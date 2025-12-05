@@ -58,16 +58,13 @@ def index():
 
 @app.route('/api/languages', methods=['GET'])
 def get_languages():
-    print("API Request: /api/languages")
     # Convert dictionary to a list of objects for easier frontend consumption
     languages = [{"id": k, "name": v[0], "code": v[1]} for k, v in language_map.items()]
     return jsonify(languages)
 
 @app.route('/api/translate', methods=['POST'])
 def translate_text():
-    print("API Request: /api/translate")
     data = request.get_json()
-    print(f"Request Data: {data}")
     text_to_translate = data.get('text')
     language_code = data.get('target_lang')
 
