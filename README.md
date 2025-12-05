@@ -10,8 +10,6 @@
 
 A modern, full-stack language translation application featuring a beautiful glassmorphism UI and dynamic background animations. Built with **React (Vite)** for the frontend and **Flask** for the backend, utilizing the **Google Translate API** via RapidAPI.
 
-![Project Screenshot](https://via.placeholder.com/800x400?text=Language+Translator+UI+Preview)
-*(Replace with actual screenshot)*
 
 ## ✨ Features
 
