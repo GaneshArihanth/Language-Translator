@@ -5,12 +5,16 @@
             "destination": "/app.py"
         },
         {
-            "source": "/(.*)",
-            "destination": "/$1"
+            "source": "/assets/(.*)",
+            "destination": "/frontend/assets/$1"
         },
         {
-            "source": "/",
-            "destination": "/index.html"
+            "source": "/(.*)\\.(.*)",
+            "destination": "/frontend/$1.$2"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/frontend/index.html"
         }
     ],
     "builds": [
