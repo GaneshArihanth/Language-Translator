@@ -81,7 +81,7 @@ def translate_text():
     }
 
     headers = {
-        "x-rapidapi-key": "b3f908e177mshc6e18f1ad07cbb6p183bdbjsne93bc24941dc",
+        "x-rapidapi-key": os.getenv("RAPIDAPI_KEY"),
         "x-rapidapi-host": "google-translate113.p.rapidapi.com",
         "Content-Type": "application/json"
     }
