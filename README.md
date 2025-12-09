@@ -1,5 +1,7 @@
 # 🌐 Language Translator
 
+A modern, full-stack language translation application featuring a beautiful glassmorphism UI and dynamic background animations. Built with **React (Vite)** for the frontend and **Flask** for the backend, utilizing the **Google Translate API** via RapidAPI.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-19.x-blue?logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -7,8 +9,6 @@
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?logo=vercel&logoColor=white)](https://vercel.com/)
-
-A modern, full-stack language translation application featuring a beautiful glassmorphism UI and dynamic background animations. Built with **React (Vite)** for the frontend and **Flask** for the backend, utilizing the **Google Translate API** via RapidAPI.
 
 ## ✨ Features
 
