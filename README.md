@@ -10,11 +10,10 @@
 
 A modern, full-stack language translation application featuring a beautiful glassmorphism UI and dynamic background animations. Built with **React (Vite)** for the frontend and **Flask** for the backend, utilizing the **Google Translate API** via RapidAPI.
 
-
 ## ✨ Features
 
 -   **🌍 Real-time Translation**: Translate text between 30+ supported languages instantly.
--   **🎨 Modern UI**: Stunning glassmorphism design with a "Gradients X Animations" background.
+-   **🎨 Modern UI**: Stunning glassmorphism design with a "Gradients X Animations" background using Aceternity UI.
 -   **⚡ High Performance**: Powered by Vite for lightning-fast frontend performance.
 -   **📱 Fully Responsive**: Seamless experience across desktop, tablet, and mobile devices.
 -   **🔌 Robust Backend**: Python Flask API handling secure communication with translation services.
@@ -33,6 +32,21 @@ A modern, full-stack language translation application featuring a beautiful glas
 -   **Language**: Python 3
 -   **Utilities**: Flask-CORS, Python-Dotenv
 -   **API**: Google Translate API (RapidAPI)
+
+## 📂 Project Structure
+
+```bash
+├── app.py                 # Flask backend application
+├── requirements.txt       # Python dependencies
+├── vercel.json            # Vercel deployment configuration
+├── frontend/              # React frontend directory
+│   ├── src/               # Source code
+│   ├── public/            # Static assets
+│   ├── index.html         # HTML entry point
+│   ├── package.json       # Frontend dependencies
+│   └── vite.config.js     # Vite configuration
+└── README.md              # Project documentation
+```
 
 ## 🚀 Getting Started
 
@@ -109,6 +123,43 @@ VITE_API_URL=http://127.0.0.1:5000
     -   Select a target language.
     -   Click "Translate".
 
+## 🔌 API Documentation
+
+The backend exposes the following endpoints:
+
+### `GET /api/languages`
+Returns a list of supported languages.
+
+**Response:**
+```json
+[
+  {
+    "id": 1,
+    "name": "English",
+    "code": "en"
+  },
+  ...
+]
+```
+
+### `POST /api/translate`
+Translates text from one language to another.
+
+**Request Body:**
+```json
+{
+  "text": "Hello world",
+  "target_lang": "es"
+}
+```
+
+**Response:**
+```json
+{
+  "translated_text": "Hola mundo"
+}
+```
+
 ## ☁️ Deployment
 
 This project is configured for seamless deployment on **Vercel**.
@@ -118,6 +169,14 @@ This project is configured for seamless deployment on **Vercel**.
 3.  **Important**: Add `RAPIDAPI_KEY` to your Vercel Project Settings > Environment Variables.
 
 *The `vercel.json` file handles the configuration for deploying both the Flask backend and React frontend together.*
+
+## 🔧 Troubleshooting
+
+### Common Issues
+-   **Backend 404 / CORS Errors**: Ensure the backend is running on `http://127.0.0.1:5000` and the frontend `.env` has `VITE_API_URL` set correctly.
+-   **Translation Failed**: Check your `RAPIDAPI_KEY` in the root `.env` file. Ensure you have subscribed to the [Google Translate API on RapidAPI](https://rapidapi.com/googlecloud/api/google-translate1).
+-   **"Module not found" in Frontend**: Run `npm install` inside the `frontend` directory.
+-   **Port Conflicts**: If port 5000 is taken, modify `app.py` to use a different port and update `VITE_API_URL` accordingly.
 
 ## 🤝 Contributing
 
