@@ -3,12 +3,12 @@
 A modern, full-stack language translation application featuring a beautiful glassmorphism UI and dynamic background animations. Built with **React (Vite)** for the frontend and **Flask** for the backend, utilizing the **Google Translate API** via RapidAPI.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![React](https://img.shields.io/badge/React-19.x-blue?logo=react)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-7.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-18.x-blue)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.x-purple)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?logo=vercel&logoColor=white)](https://vercel.com/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.x-000000)](https://flask.palletsprojects.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-Hosting-000000)](https://vercel.com/)
 
 ## ✨ Features
 
